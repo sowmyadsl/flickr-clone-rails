@@ -16,3 +16,22 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.images img {
+  display: inline-grid;
+  width: 600px;
+  height: 600px;
+}
+
+li {
+list-style: none;
+}
+
+#logo {
+  display: inline-flex;
+  img {
+    height: 40px;
+    margin-right: 10px;
+    align-self: center;
+  }
+}

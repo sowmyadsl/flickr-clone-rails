@@ -15,3 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function click_me(arg) {
+  console.log(arg);
+}
