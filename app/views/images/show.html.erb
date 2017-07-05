@@ -2,11 +2,11 @@
 
 <h2><%= @image.title %></h2>
 <h3><%= @image.description %></h3>
-<figure><%= image_tag @image.image_url %></figure>
+<figure><%= image_tag @image.avatar.url %></figure>
 
 
-<p><%= link_to "Edit", edit_image_path(@image) %></p>
-<p><%= link_to "Delete", image_path(@image),
+<p><%= link_to "Edit", edit_user_image_path(current_user.id, @image) %></p>
+<p><%= link_to "Delete", user_image_path(current_user.id, @image),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
-<p><%= link_to "Return to images", images_path %></p>
+<p><%= link_to "Return to Profile", user_path(current_user.id) %></p>

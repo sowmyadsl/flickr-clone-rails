@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
     @image = current_user.images.build(image_params)
     if @image.save
     flash[:notice] = "Image successfully added!"
-      redirect_to  images_path
+      redirect_to  user_path(current_user.id)
     else
       render :new
     end
@@ -28,10 +28,10 @@ class ImagesController < ApplicationController
   end
 
   def update
-    @image= Image.find(params[:id])
+    @image = Image.find(params[:id])
     if @image.update(image_params)
       flash[:notice] = "Image successfully updated!"
-      redirect_to images_path
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     if @image.destroy
       flash[:notice] = "Image successfully removed!"
-      redirect_to images_path
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -51,6 +51,6 @@ class ImagesController < ApplicationController
 private
   def image_params
     # Use strict parameters, replace placeholder info below with your class' actual attributes
-    params.require(:image).permit(:title, :image_url, :description, :user_id)
+    params.require(:image).permit(:title, :avatar, :description, :user_id)
   end
 end
