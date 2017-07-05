@@ -1,0 +1,18 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: flickr_development
+
+test:
+  <<: *default
+  database: flickr_test
+
+production:
+  <<: *default
+  database: flickr_production
+  username: flickr
+  password: <%= ENV['FLICKR_DATABASE_PASSWORD'] %>

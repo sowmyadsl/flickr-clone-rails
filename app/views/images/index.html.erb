@@ -1,0 +1,11 @@
+<h1>Images</h1>
+
+<ul>
+  <% @images.each do |image| %>
+    <li><%= link_to image.title, image_path(image) %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "New Image", new_image_path %>
