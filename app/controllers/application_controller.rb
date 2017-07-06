@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :get_image_url, :get_user_url
+  helper_method :current_user, :get_image_url, :get_user_url, :comment_author
 
   def authorize
     if !current_user
@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
       user_path
     else
       users_path
+    end
+  end
+
+  def comment_author(comment)
+    if comment.author
+      @comment_author = User.find(comment.author)
     end
   end
 

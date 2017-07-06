@@ -1,9 +1,16 @@
-
-<div class="images">
-    <% @images.each do |image| %>
-    <%= image_tag image.avatar.url %>
-    <% end %>
-</div>
-
-
+<% if current_user %>
+  <div class="images">
+      <% @images.each do |image| %>
+        <%= link_to image_path(image) do %>
+          <%= image_tag image.avatar.url %>
+        <% end %>
+      <% end %>
+  </div>
+<% else %>
+  <div class="images">
+      <% @images.each do |image| %>
+        <%= image_tag image.avatar.url %>
+      <% end %>
+  </div>
+<% end %>
 <hr>

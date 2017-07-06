@@ -1,0 +1,13 @@
+<div class="panel-heading">
+  <% if comment.author %>
+    <%= comment_author(comment).name %>
+  <% end %>
+</div>
+<div class="panel-body">
+  <% if comment.created_at %>
+    <small class="author">Submitted <%= time_ago_in_words(comment.created_at) %> </small>
+  <% end %>
+    <p>
+      <%= comment.body %>
+    </p>
+</div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'users#index'
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  # get '/images/:id', to: 'images#show', as: 'image'
 
 
   get '/signin' => 'sessions#new'
@@ -10,5 +11,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :images
+  end
+
+  resources :images do
+    resources :comments
   end
 end
