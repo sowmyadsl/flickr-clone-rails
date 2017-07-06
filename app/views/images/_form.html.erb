@@ -5,7 +5,7 @@
   <%= f.text_field :title %>
   <br>
   <%= f.label :description, class: 'btn', onclick: "click_me(#{@image.id})" %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, class: 'desc'%>
   <br>
   <%= f.label :avatar %>
   <%= f.file_field :avatar %>

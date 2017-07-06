@@ -62,3 +62,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# seed test db
+Image.destroy_all
+Comment.destroy_all
+User.destroy_all

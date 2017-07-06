@@ -18,4 +18,11 @@
 
 function click_me(arg) {
   console.log(arg);
+  $('.btn').hide();
+  let result = $('.desc').val()
+  console.log('result: ', result);
+}
+
+function show_me() {
+  $('.panel').toggle();
 }

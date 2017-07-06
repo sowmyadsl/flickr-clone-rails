@@ -10,41 +10,35 @@
 
   <body>
 
-  <body>
-
     <header class="navbar navbar-default" role="navigation">
-  <div class="navbar-inner">
-    <div class="container">
+      <div class="navbar-inner">
+        <div class="container">
 
-      <div id="logo" class="navbar-brand">
-        <%= image_tag "flickr-icon.png" %>
-        <%= link_to "Flickr", root_path %>
+          <div id="logo" class="navbar-brand">
+            <%= image_tag "flickr-icon.png" %>
+            <%= link_to "Flickr", root_path %>
+          </div>
+          <nav class="collapse navbar-collapse navbar-ex1-collapse">
+            <% if current_user -%>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to 'Submit Image', new_user_image_path(current_user.id) %></li>
+                <li><%= image_tag current_user.avatar.url(:thumb) %></li>
+                <li><%= link_to 'Profile', user_path(current_user.id) %></li>
+                <li><%= link_to 'Sign out', '/signout'%></li>
+              </ul>
+            <% else -%>
+              <ul class="nav navbar-nav pull-right">
+                <li><%= link_to 'Sign up', 'signup' %></li>
+                <li><%= link_to 'Sign in', '/signin' %></li>
+              </ul>
+            <% end -%>
+          </nav>
+        </div>
       </div>
-      <nav class="collapse navbar-collapse navbar-ex1-collapse">
-        <% if current_user -%>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Submit Image', new_user_image_path(current_user.id) %></li>
-            <li><%= image_tag current_user.avatar.url(:thumb) %></li>
-            <li><%= link_to 'Profile', user_path(current_user.id) %></li>
-            <li><%= link_to 'Sign out', '/signout'%></li>
-          </ul>
-        <% else -%>
-          <ul class="nav navbar-nav pull-right">
-            <li><%= link_to 'Sign up', 'signup' %></li>
-            <li><%= link_to 'Sign in', '/signin' %></li>
-          </ul>
-        <% end -%>
-      </nav>
-    </div>
-  </div>
-</header>
-
-
+    </header>
 
     <%= flash[:alert] %>
     <%= flash[:notice] %>
-
-    <%= yield %>
-  </body>
+        <%= yield %>
   </body>
 </html>
